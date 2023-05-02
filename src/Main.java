@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static JFrame frame;
+    public static JFrame frame2;
     public static JPanel board;
     public static Result result;
     public static void main(String[] args) {
@@ -117,49 +118,46 @@ public class Main {
         frame.repaint();
     }
 
-    public static void change(ChessPiece[][] board, int row, int col, boolean isWhite,int tile_size, int chessTypePiece){
-        JFrame frame2 = new JFrame("Change");
-        JPanel panel = new JPanel();
-        frame2.setSize(300,100);
-        frame2.setMinimumSize(new Dimension(300,150));
-        frame2.setMaximumSize(new Dimension(300,150));
-        frame2.setLocationRelativeTo(null);
-        panel.setLayout(new GridLayout(1,0));
+    public static void change(ChessPiece[][] Chessboard, int row, int col, boolean isWhite,int tile_size, int chessTypePiece){
+        JDialog dialog = new JDialog(frame,"Chess Pieces types",true);
+        dialog.setLayout(new GridLayout(1,0));
         JButton queen = new JButton("Queen");
         JButton tower = new JButton("Tower");
         JButton bishop = new JButton("Bishop");
         JButton horse = new JButton("Horse");
-
+        dialog.setSize(new Dimension(400,100));
+        dialog.setLocationRelativeTo(null);
         queen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board[row][col] = new Queen(row,col,isWhite,tile_size,chessTypePiece);
-                frame2.dispose();
+                Chessboard[row][col] = new Queen(row*tile_size,col*tile_size,isWhite,tile_size,chessTypePiece);
+                dialog.dispose();
             }
         });
         tower.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board[row][col] = new Tower(row,col,isWhite,tile_size,false,chessTypePiece);
-                frame2.dispose();
+                Chessboard[row][col] = new Tower(row*tile_size,col*tile_size,isWhite,tile_size,false,chessTypePiece);
+                dialog.dispose();
             }
         });
         bishop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board[row][col] = new Bishop(row,col,isWhite,tile_size,chessTypePiece);
-                frame2.dispose();
+                Chessboard[row][col] = new Bishop(row*tile_size,col*tile_size,isWhite,tile_size,chessTypePiece);
+                dialog.dispose();
             }
         });
         horse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board[row][col] = new Horse(row,col,isWhite,tile_size,chessTypePiece);
-                frame2.dispose();
+                Chessboard[row][col] = new Horse(row*tile_size,col*tile_size,isWhite,tile_size,chessTypePiece);
+                dialog.dispose();
             }
         });
-        panel.add(queen);panel.add(tower);panel.add(bishop);panel.add(horse);
-        frame2.add(panel);
-        frame2.setVisible(true);
+        dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        dialog.add(queen); dialog.add(tower); dialog.add(bishop); dialog.add(horse);
+        dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        dialog.setVisible(true);
     }
 }

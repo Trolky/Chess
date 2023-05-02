@@ -20,28 +20,38 @@ public class loadImages {
     }
 
     public static Image[] getImages(int tile_size) throws IOException {
-        BufferedImage all = ImageIO.read(new File("Resources/chess.png"));
-        Image[] images = new Image[12];
-        int ind = 0;
-        for(int y=0;y<400;y+=200){
-            for(int x=0;x<1200;x+=200){
-                images[ind] = all.getSubimage(x,y,200,200).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH);
-                ind++;
-            }
-        }
+        Image[] images = new Image[]{
+                ImageIO.read(new File("Resources/Pieces/Set1/BlackBishop.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/BlackHorse.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/BlackKing.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/BlackPawn.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/BlackQueen.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/BlackTower.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/WhiteBishop.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/WhiteHorse.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/WhiteKing.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/WhitePawn.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/WhiteQueen.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set1/WhiteTower.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH)
+        };
         return images;
     }
 
     public static Image[] getImages2(int tile_size) throws IOException {
-        BufferedImage all = ImageIO.read(new File("Resources/chess2.png"));
-        Image[] images = new Image[12];
-        int ind = 0;
-        for(int y=0;y<800;y+=400){
-            for(int x=0;x<1800;x+=300){
-                images[ind] = all.getSubimage(x,y,300,400).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH);
-                ind++;
-            }
-        }
+        Image[] images = new Image[]{
+                ImageIO.read(new File("Resources/Pieces/Set2/BlackBishop.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/BlackHorse.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/BlackKing.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/BlackPawn.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/BlackQueen.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/BlackTower.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/WhiteBishop.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/WhiteHorse.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/WhiteKing.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/WhitePawn.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/WhiteQueen.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH),
+                ImageIO.read(new File("Resources/Pieces/Set2/WhiteTower.png")).getScaledInstance(tile_size,tile_size,BufferedImage.SCALE_SMOOTH)
+        };
         return images;
     }
 

@@ -30,7 +30,6 @@ public class Result extends JPanel {
         BarRenderer renderer = (BarRenderer)categoryPlot.getRenderer();
         renderer.setItemMargin(0);
         ChartPanel panel = new ChartPanel(chart);
-        panel.setSize(new Dimension(100,100));
         this.setLayout(new GridLayout(3,0));
         label.setHorizontalAlignment(SwingConstants.CENTER);
         this.add(label);

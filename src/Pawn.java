@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.Buffer;
 
 public class Pawn extends ChessPiece{
-    boolean justMovedByTwo;
+    public boolean justMovedByTwo;
     boolean hasMoved;
     public Pawn(int row, int col, boolean isWhite, int tile_size,boolean hasMoved,int chessPieceType) {
         super(row, col, isWhite, "pawn", tile_size,chessPieceType);
@@ -60,8 +60,8 @@ public class Pawn extends ChessPiece{
     public void draw(Graphics g) throws IOException {
         Graphics2D g2 = (Graphics2D) g;
         int index = 0;
-        int x = super.getCol() * super.getTile_size();
-        int y = super.getRow() * super.getTile_size();
+        int x = super.getCol();
+        int y = super.getRow();
         switch (chessPieceType){
             case 1:
                 Path2D path = new Path2D.Double();
@@ -87,14 +87,14 @@ public class Pawn extends ChessPiece{
                 }
                 break;
             case 2:
-                index = 5;
-                if(!isWhite()) index +=6;
-                g2.drawImage(loadImages.images1[index],getCol()*getTile_size(),getRow()*getTile_size(),getTile_size(),getTile_size(),null);
+                index = 3;
+                if(isWhite()) index +=6;
+                g2.drawImage(loadImages.images1[index],getCol(),getRow(),getTile_size(),getTile_size(),null);
                 break;
             case 3:
-                index = 5;
+                index = 3;
                 if(isWhite()) index +=6;
-                g2.drawImage(loadImages.images2[index], (getCol()*getTile_size())-2,getRow()*getTile_size(),getTile_size(),getTile_size(),null);
+                g2.drawImage(loadImages.images2[index], getCol(),getRow(),getTile_size(),getTile_size(),null);
                 break;
         }
 

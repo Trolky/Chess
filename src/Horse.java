@@ -25,14 +25,14 @@ public class Horse extends ChessPiece{
     @Override
     public void draw(Graphics g) throws IOException {
         Graphics2D g2 = (Graphics2D) g;
-        int x = super.getCol() * super.getTile_size();
-        int y = super.getRow() * super.getTile_size();
+        int x = super.getCol();
+        int y = super.getRow();
         int index = 0;
         switch (chessPieceType){
             case 1:
                 Path2D path = new Path2D.Double();
                 path.moveTo(x+getTile_size()/4.0, y+getTile_size()-getTile_size()/8.0);
-                path.curveTo(x+getTile_size()/5.0,y+((getTile_size()/4.0)*1.75),(x+getTile_size())-getTile_size()/5.0,y+((getTile_size()/4.0)*1.75),x+getTile_size()-getTile_size()/4.0,y+getTile_size()-getTile_size()/8.0);
+                path.curveTo(x+getTile_size()/5.0,y+((getTile_size()/4.0)*1.75),x+getTile_size()-getTile_size()/5.0,y+((getTile_size()/4.0)*1.75),x+getTile_size()-getTile_size()/4.0,y+getTile_size()-getTile_size()/8.0);
                 path.closePath();
 
                 double middleBodyR = getTile_size()/3.0;
@@ -57,14 +57,14 @@ public class Horse extends ChessPiece{
                 }
                 break;
             case 2:
-                index = 3;
-                if(!isWhite()) index +=6;
-                g2.drawImage(loadImages.images1[index],getCol()*getTile_size(),getRow()*getTile_size(),getTile_size(),getTile_size(),null);
+                index = 1;
+                if(isWhite()) index +=6;
+                g2.drawImage(loadImages.images1[index],getCol(),getRow(),getTile_size(),getTile_size(),null);
                 break;
             case 3:
-                index = 4;
+                index = 1;
                 if(isWhite()) index +=6;
-                g2.drawImage(loadImages.images2[index], (getCol()*getTile_size())-1,getRow()*getTile_size(),getTile_size(),getTile_size(),null);
+                g2.drawImage(loadImages.images2[index], getCol(),getRow(),getTile_size(),getTile_size(),null);
                 break;
         }
 

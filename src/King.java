@@ -58,8 +58,8 @@ public class King extends ChessPiece{
     public void draw(Graphics g) throws IOException {
         Graphics2D g2 = (Graphics2D) g;
         int index = 0;
-        int x = super.getCol() * super.getTile_size();
-        int y = super.getRow() * super.getTile_size();
+        int x = super.getCol();
+        int y = super.getRow();
 
       switch (chessPieceType){
           case 1:
@@ -85,13 +85,14 @@ public class King extends ChessPiece{
               }
               break;
           case 2:
-              if(!isWhite()) index +=6;
-              g2.drawImage(loadImages.images1[index],getCol()*getTile_size(),getRow()*getTile_size(),getTile_size(),getTile_size(),null);
+              index = 2;
+              if(isWhite()) index +=6;
+              g2.drawImage(loadImages.images1[index],getCol(),getRow(),getTile_size(),getTile_size(),null);
               break;
           case 3:
-              index = 3;
+              index = 2;
               if(isWhite()) index +=6;
-              g2.drawImage(loadImages.images2[index], (getCol()*getTile_size())-2,getRow()*getTile_size(),getTile_size(),getTile_size(),null);
+             g2.drawImage(loadImages.images2[index], getCol(),getRow(),getTile_size(),getTile_size(),null);
               break;
       }
 
